@@ -11,7 +11,6 @@ value = 0
 for t in train:
     value += t
     S.append(value)
-print(S)
 dp = [[0] * (N + 1) for _ in range(4)]
 
 # 점화식을 이용해 최댓값 탐색

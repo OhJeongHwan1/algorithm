@@ -32,8 +32,11 @@ while True:
                             if distance[ny][nx] > distance[y][x] + graph[ny][nx]:
                                 distance[ny][nx] = distance[y][x] + graph[ny][nx]
                                 q.append([ny,nx])
+
             dijkstra()
+            print()
             print("Problem {}: {}".format(n, distance[N-1][N-1]))
+            
         else:
             break
     except:
