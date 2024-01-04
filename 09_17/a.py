@@ -4,7 +4,9 @@ num_list = []
 for i in range(M): 
     num_list.append(list(map(int, input().split())))
 
-num_list.sort(reverse=True) #내리차순 정렬
+num_list = []
+for i in range(M): 
+    num_list.append(list(map(int, input().split())))
 
 problem_number = K #점점 줄이기 위한 값
 index = 0

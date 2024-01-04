@@ -24,3 +24,5 @@ def quad_tree(x,y,n):
 
 quad_tree(0,0,n)
 print("".join(map(str,(result))))
+
+## 쿼드 트리

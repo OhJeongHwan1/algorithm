@@ -41,3 +41,5 @@ paper(0,0,n)
 print(num0,end='\n')
 print(num1,end='\n')
 print(num2,end='\n')
+
+# 종이의 개수 

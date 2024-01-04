@@ -1,25 +1,15 @@
 import sys
-
-n = int(sys.stdin.readline().rstrip())
-
-alls = []
-do = [False] *1001
-
-for _ in range(n):
-    d, w = map(int, sys.stdin.readline().split())
-    alls.append([d, w])
-
-alls.sort(reverse =True)
-print(alls)
-score = 0
-
-for d, w in alls:
-    i = d
-    while i > 0 and do[i]:
-        i -= 1
-    if i == 0:
-        continue
-    else:
-        do[i] = True
-        score += w
-print(score)
+input = sys.stdin.readline
+N= int(input())
+date = [0] * (1001)  # date
+d = []                # (과제 점수 : W ) & (남은 일수 : D) 저장
+for i in range(N):
+    D, W = map(int,input().split())
+    d.append((W, D))
+d.sort(reverse=True)  # 점수에 대해 내림차순으로 정렬
+for i in range(N):
+    for j in range(d[i][1], 0, -1): # i부터 시작해서 뒤로 감
+        if date[j] == 0:           
+            date[j] = d[i][0]
+            break
+print(sum(date))

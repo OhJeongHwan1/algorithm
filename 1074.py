@@ -23,3 +23,4 @@ def find(x,y,n): #x,y시작점, 각 내부사각형
 
 find(0,0,2**n)
 print(visited)
+#### z문제
