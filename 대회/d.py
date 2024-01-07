@@ -1,7 +1,4 @@
 from collections import defaultdict, deque
-import sys
-
-input = sys.stdin.readline
 
 class Solution:
     def numBusesToDestination(self, routes, S, T):
@@ -11,24 +8,39 @@ class Solution:
             for stop in route:
                 to_route[stop].add(i)
 
-        # BFS 탐색
+        # 노선들 간의 연결 관계를 나타내는 그래프
+        graph = defaultdict(set)
+        for i in range(len(routes)):
+            for j in range(i+1, len(routes)):
+                # 두 노선이 하나 이상의 정류장을 공유할 경우
+                if any(stop in routes[j] for stop in routes[i]):
+                    graph[i].add(j)
+                    graph[j].add(i)
+
         bfs = deque([(S, 0)])
-        seen_stops = {S} # 방문한 정류장
-        seen_routes = set() # 방문한 노선
+        seen_stops = {S}
+        seen_routes = set()
 
         while bfs:
             stop, buses = bfs.popleft()
             if stop == T:
                 return buses
             for route_i in to_route[stop]:
-                if route_i in seen_routes: # 해당 노선을 이미 확인했으면 skip
+                if route_i in seen_routes:
                     continue
+                seen_routes.add(route_i)
                 for next_stop in routes[route_i]:
                     if next_stop not in seen_stops:
                         seen_stops.add(next_stop)
                         bfs.append((next_stop, buses + 1))
-                seen_routes.add(route_i) # 해당 노선 확인 표시
-
+                for next_route in graph[route_i]:
+                    if next_route not in seen_routes:
+                        seen_routes.add(next_route)  # 추가된 부분
+                        for next_stop in routes[next_route]:
+                            if next_stop not in seen_stops:
+                                seen_stops.add(next_stop)
+                                bfs.append((next_stop, buses + 1))
+        
         return -77
 
 if __name__ == "__main__":
