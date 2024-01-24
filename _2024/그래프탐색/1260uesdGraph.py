@@ -57,3 +57,4 @@ while queue:
 
 # 결과 출력
 print(*bfs)
+print(adj_list)

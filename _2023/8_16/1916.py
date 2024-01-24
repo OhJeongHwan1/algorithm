@@ -3,7 +3,6 @@ import sys
 
 input = sys.stdin.readline
 
-
 n = int(input())
 m = int(input())
 graph = {i: [] for i in range(1, n+1)}
