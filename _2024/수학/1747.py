@@ -7,18 +7,12 @@ input = sys.stdin.readline
 N = int(input())
 
 def checkDemical(num):
-    if num !=2 and num%2 ==0:
+    if num < 2:
         return False
-    
-    if num == 2:
-        return True
-    
-    for i in range(3,num+1,2):
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:
-            if i == num:
-                return True
-            else:
-                return False
+            return False
+    return True
             
 def checkFellin(num):
     num_list = list(map(int,str(num)))
