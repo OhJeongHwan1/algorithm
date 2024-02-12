@@ -1,4 +1,5 @@
 # 1759 암호 만들기
+# 조합 itertools 사용
 
 import sys
 from itertools import combinations
