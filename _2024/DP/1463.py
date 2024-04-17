@@ -20,7 +20,6 @@ def find(number):
 
         if can_make[num] + 1 < can_make[num-1]:
             can_make[num-1] = can_make[num] + 1
-
     return can_make[1]
 
 print(find(N))
