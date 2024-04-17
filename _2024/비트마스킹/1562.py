@@ -28,8 +28,7 @@ for i in range(1,n): # n-1까지하면 n 구할수 있음
 
 total = 0
 for k in range(1,num_range): # 0으로 시작하는 수만 제외
-    total += DP[n][k][0b1111111111]
+    total += DP[n][k][bit_range - 1]
     total%=MOD
 
-print(DP)
 print(total)
