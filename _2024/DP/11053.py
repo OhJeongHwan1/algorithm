@@ -11,6 +11,6 @@ for i in range(N):
     for j in range(i,N):
         if num_array[i] < num_array[j]:
             if dp[j] < dp[i]+1:
-                dp[j] += 1
+                dp[j] = dp[i]+1
 
 print(max(dp))
