@@ -1,4 +1,4 @@
-# 9252 LCS2 골5
+# 9252 LCS2 골4
 import sys
 input = sys.stdin.readline
 

@@ -1,4 +1,4 @@
-# 전깃줄 - 2
+# 전깃줄 - 2 플 5
 import sys
 input = sys.stdin.readline
 
